@@ -1,0 +1,23 @@
+<html>
+    <script>
+        window.onload = async function(){
+            console.log( "Loaded" );
+            
+            const replaceNode = document.getElementById( "toReplace" );
+            console.log( "replace", replaceNode );
+            
+            const response = await fetch( "https://raw.githubusercontent.com/A1steaksa/web-hosting/main/index.html" )
+            
+            const text = await response.text();
+            
+            console.log( "text", text );
+
+            replaceNode.innerHTML = text;
+
+            console.log( "new value", replaceNode.innerHTML );
+        }
+    </script>
+    <body>
+        <div id="toReplace"></div>
+    </body>
+</html>
